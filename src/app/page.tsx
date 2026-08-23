@@ -195,7 +195,7 @@ export default function Home() {
             <div>
               <h1 className="text-xl font-extrabold tracking-wide">Shane | Web Developer</h1>
               <p className={`text-xs ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
-                Full-Stack Laravel, PHP & Vite Specialist ✦ 4+ Years Exp
+                Full-Stack Laravel, PHP & Vite Specialist ✦ 5+ Years Exp (and still coding)
               </p>
             </div>
           </div>
@@ -352,7 +352,7 @@ export default function Home() {
                         darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
                       }`}
                     >
-                      I am a Web Developer with 4 years of hands-on experience building robust full-stack web applications. My core expertise centers around backend development with Laravel, PHP, and MySQL, alongside crisp frontend development using JavaScript, CSS, Bootstrap, and Vite.
+                      I am a Web Developer building robust full-stack web applications. My core expertise centers around backend development with Laravel, PHP, and MySQL, alongside crisp frontend development using JavaScript, CSS, Bootstrap, and Vite.
                     </p>
                   </div>
                 </div>
