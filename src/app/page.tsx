@@ -807,7 +807,7 @@ export default function Home() {
         type="text"
         name="name"
         required
-        placeholder="e.g. Alex Morgan"
+        placeholder="e.g. Bityok Dee"
         className={`w-full border-2 p-2.5 text-xs font-mono outline-none transition-colors ${
           darkMode ? 'bg-[#262335] border-[#907AD6] text-white' : 'bg-[#FFF8F6] border-[#4A3E3D]'
         }`}
@@ -822,7 +822,7 @@ export default function Home() {
         type="email"
         name="email"
         required
-        placeholder="e.g. alex@example.com"
+        placeholder="e.g. bityok.dee@example.com"
         className={`w-full border-2 p-2.5 text-xs font-mono outline-none transition-colors ${
           darkMode ? 'bg-[#262335] border-[#907AD6] text-white' : 'bg-[#FFF8F6] border-[#4A3E3D]'
         }`}
