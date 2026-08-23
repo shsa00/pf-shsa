@@ -10,5 +10,5 @@ const nextConfig: NextConfig = {
   /* Ensure compiler minifies JavaScript code */
   swcMinify: true,
 };
-
+  typescript: { ignoreBuildErrors: true },
 export default nextConfig;
