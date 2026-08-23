@@ -88,7 +88,7 @@ export default function Home() {
   const projects: Project[] = [{
       id: 'laravel-app-1',
       title: 'Learning Management System (LMS) Web App',
-      year: '2021-2023',
+      projYear: '2021-2023',
       desc: 'Full-stack application built with Laravel, PHP, and MySQL database management. (2021-2023)',
       longDesc:
         'A platform for educational institutions to manage classrooms, students, instructors and books. Features include multi-role authentication, book importing and creation, quiz/assignment creations and grading.',
@@ -108,7 +108,7 @@ export default function Home() {
     {
       id: 'laravel-app-2',
       title: 'School Management System (SMS) Web App',
-      year: '2019-2023',
+      projYear: '2019-2023',
       desc: 'Full-stack application built with Laravel, PHP, and MySQL database management. (2019-2023)',
       longDesc:
         'A platform for educational institutions to manage enrollment, class scheduling, payments, students, and instructors. Features include multi-role authentication, enrollment, grading system, and parent notification system.',
@@ -956,7 +956,7 @@ export default function Home() {
                 <div>
                   <h3 className="font-extrabold text-lg leading-tight">{selectedProject.title}</h3>
                   <span className={`text-[10px] font-bold uppercase tracking-wider ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
-                    {selectedProject.year}
+                    {selectedProject.projYear}
                   </span>
                 </div>
               </div>
