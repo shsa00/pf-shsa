@@ -1,0 +1,581 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
+export default function Home() {
+  const [activeTab, setActiveTab] = useState<'about' | 'projects' | 'certifications' | 'contact'>('about');
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Array of official technology logos sourced from Simple Icons CDN
+  const techStack = [
+    {
+      label: 'Laravel',
+      logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/laravel.svg',
+      color: 'filter invert-[27%] sepia-[91%] saturate-[5890%] hue-rotate-[353deg] brightness-[98%] contrast-[89%]',
+    },
+    {
+      label: 'PHP',
+      logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/php.svg',
+      color: 'filter invert-[46%] sepia-[11%] saturate-[1931%] hue-rotate-[197deg] brightness-[95%] contrast-[89%]',
+    },
+    {
+      label: 'MySQL',
+      logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/mysql.svg',
+      color: 'filter invert-[32%] sepia-[86%] saturate-[1011%] hue-rotate-[166deg] brightness-[93%] contrast-[89%]',
+    },
+    {
+      label: 'Vite',
+      logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/vite.svg',
+      color: 'filter invert-[54%] sepia-[94%] saturate-[2808%] hue-rotate-[226deg] brightness-[98%] contrast-[97%]',
+    },
+    {
+      label: 'JavaScript',
+      logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/javascript.svg',
+      color: 'filter invert-[83%] sepia-[68%] saturate-[1563%] hue-rotate-[359deg] brightness-[102%] contrast-[92%]',
+    },
+    {
+      label: 'Bootstrap',
+      logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/bootstrap.svg',
+      color: 'filter invert-[23%] sepia-[88%] saturate-[3105%] hue-rotate-[261deg] brightness-[87%] contrast-[96%]',
+    },
+    {
+      label: 'CSS3',
+      logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/css3.svg',
+      color: 'filter invert-[30%] sepia-[95%] saturate-[2084%] hue-rotate-[193deg] brightness-[94%] contrast-[93%]',
+    },
+  ];
+
+  // Structured JSON-LD Data for Search Engines (Person Schema)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Shane',
+    jobTitle: 'Full-Stack Web Developer',
+    knowsAbout: ['Laravel', 'PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'Vite', 'CSS', 'Networking'],
+    knowsLanguage: ['English', 'Korean'],
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certification',
+        name: 'Cisco Certified Networking Associate / Cisco Networking',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Cisco Systems',
+        },
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <main
+        className={`min-h-screen w-full font-mono p-4 sm:p-6 md:p-10 flex flex-col justify-between relative select-none transition-colors duration-200 ${
+          darkMode ? 'bg-[#1A1821] text-[#E0D8F0]' : 'bg-[#FDF0ED] text-[#4A3E3D]'
+        }`}
+      >
+        {/* Background Pixel Pattern Grid */}
+        <div
+          className="absolute inset-0 opacity-15 pointer-events-none"
+          style={{
+            backgroundImage: darkMode
+              ? `radial-gradient(#907AD6 1.5px, transparent 1.5px)`
+              : `radial-gradient(#D8A7B1 1.5px, transparent 1.5px)`,
+            backgroundSize: '16px 16px',
+          }}
+        />
+
+        {/* Top Banner / Navbar */}
+        <header
+          className={`w-full border-4 relative z-10 p-4 mb-6 flex flex-col sm:flex-row justify-between items-center gap-4 transition-colors ${
+            darkMode
+              ? 'bg-[#262335] border-[#907AD6] shadow-[6px_6px_0px_0px_#4F4670]'
+              : 'bg-[#FFF8F6] border-[#4A3E3D] shadow-[6px_6px_0px_0px_#D8A7B1]'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <div
+              className={`w-10 h-10 border-2 flex items-center justify-center text-xl shrink-0 ${
+                darkMode
+                  ? 'bg-[#4F4670] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
+                  : 'bg-[#E2F0CB] border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
+              }`}
+            >
+              💻
+            </div>
+            <div>
+              <h1 className="text-xl font-extrabold tracking-wide">Shane | Web Developer</h1>
+              <p className={`text-xs ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
+                Full-Stack Laravel, PHP & Vite Specialist ✦ 4+ Years Exp
+              </p>
+            </div>
+          </div>
+
+          {/* Navigation & Theme Toggle */}
+          <nav aria-label="Main Navigation" className="flex flex-wrap justify-center items-center gap-2 w-full sm:w-auto">
+            <button
+              onClick={() => setActiveTab('about')}
+              className={`px-3 py-1.5 text-xs font-bold border-2 transition-all ${
+                activeTab === 'about'
+                  ? darkMode
+                    ? 'bg-[#907AD6] text-white border-[#DABfff] shadow-[3px_3px_0px_0px_#DABfff] -translate-y-0.5'
+                    : 'bg-[#FFB7B2] text-[#4A3E3D] border-[#4A3E3D] shadow-[3px_3px_0px_0px_#4A3E3D] -translate-y-0.5'
+                  : darkMode
+                  ? 'bg-[#1A1821] border-[#907AD6] hover:bg-[#342F48]'
+                  : 'bg-white border-[#4A3E3D] hover:bg-[#FFE5E2]'
+              }`}
+            >
+              ✦ ABOUT
+            </button>
+            <button
+              onClick={() => setActiveTab('projects')}
+              className={`px-3 py-1.5 text-xs font-bold border-2 transition-all ${
+                activeTab === 'projects'
+                  ? darkMode
+                    ? 'bg-[#7058B8] text-white border-[#DABfff] shadow-[3px_3px_0px_0px_#DABfff] -translate-y-0.5'
+                    : 'bg-[#FFDAC1] text-[#4A3E3D] border-[#4A3E3D] shadow-[3px_3px_0px_0px_#4A3E3D] -translate-y-0.5'
+                  : darkMode
+                  ? 'bg-[#1A1821] border-[#907AD6] hover:bg-[#342F48]'
+                  : 'bg-white border-[#4A3E3D] hover:bg-[#FFF0E5]'
+              }`}
+            >
+              ✦ PROJECTS
+            </button>
+            <button
+              onClick={() => setActiveTab('certifications')}
+              className={`px-3 py-1.5 text-xs font-bold border-2 transition-all ${
+                activeTab === 'certifications'
+                  ? darkMode
+                    ? 'bg-[#8062D6] text-white border-[#DABfff] shadow-[3px_3px_0px_0px_#DABfff] -translate-y-0.5'
+                    : 'bg-[#B5EAD7] text-[#4A3E3D] border-[#4A3E3D] shadow-[3px_3px_0px_0px_#4A3E3D] -translate-y-0.5'
+                  : darkMode
+                  ? 'bg-[#1A1821] border-[#907AD6] hover:bg-[#342F48]'
+                  : 'bg-white border-[#4A3E3D] hover:bg-[#EAFBF3]'
+              }`}
+            >
+              ✦ CERTS & WORKSHOPS
+            </button>
+            <button
+              onClick={() => setActiveTab('contact')}
+              className={`px-3 py-1.5 text-xs font-bold border-2 transition-all ${
+                activeTab === 'contact'
+                  ? darkMode
+                    ? 'bg-[#4F4670] text-white border-[#DABfff] shadow-[3px_3px_0px_0px_#DABfff] -translate-y-0.5'
+                    : 'bg-[#E2F0CB] text-[#4A3E3D] border-[#4A3E3D] shadow-[3px_3px_0px_0px_#4A3E3D] -translate-y-0.5'
+                  : darkMode
+                  ? 'bg-[#1A1821] border-[#907AD6] hover:bg-[#342F48]'
+                  : 'bg-white border-[#4A3E3D] hover:bg-[#F2F9E8]'
+              }`}
+            >
+              ✦ CONTACT
+            </button>
+
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className={`ml-2 px-3 py-1.5 text-xs font-bold border-2 transition-all ${
+                darkMode
+                  ? 'bg-[#F2C94C] text-[#1A1821] border-[#F2C94C] shadow-[3px_3px_0px_0px_#907AD6]'
+                  : 'bg-[#4A3E3D] text-[#FDF0ED] border-[#4A3E3D] shadow-[3px_3px_0px_0px_#D8A7B1]'
+              }`}
+            >
+              {darkMode ? '☀️ LIGHT' : '🌙 DARK'}
+            </button>
+          </nav>
+        </header>
+
+        {/* Main Content Area */}
+        <section
+          className={`w-full flex-grow border-4 relative z-10 p-6 sm:p-8 flex flex-col justify-between transition-colors ${
+            darkMode
+              ? 'bg-[#262335] border-[#907AD6] shadow-[8px_8px_0px_0px_#4F4670]'
+              : 'bg-[#FFF8F6] border-[#4A3E3D] shadow-[8px_8px_0px_0px_#D8A7B1]'
+          }`}
+        >
+          {/* Tab 1: About */}
+          {activeTab === 'about' && (
+            <article className="space-y-6">
+              <div
+                className={`flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-6 border-b-4 border-dashed ${
+                  darkMode ? 'border-[#4F4670]' : 'border-[#D8A7B1]'
+                }`}
+              >
+                <div className="space-y-2">
+                  <div className="flex flex-wrap gap-2">
+                    <span
+                      className={`inline-block text-xs font-bold px-2 py-0.5 border-2 ${
+                        darkMode
+                          ? 'bg-[#4F4670] text-[#DABfff] border-[#907AD6]'
+                          : 'bg-[#B5EAD7] text-[#4A3E3D] border-[#4A3E3D]'
+                      }`}
+                    >
+                      FULL-STACK DEVELOPER
+                    </span>
+                    <span
+                      className={`inline-block text-xs font-bold px-2 py-0.5 border-2 ${
+                        darkMode
+                          ? 'bg-[#342F48] text-[#DABfff] border-[#907AD6]'
+                          : 'bg-[#FFDAC1] text-[#4A3E3D] border-[#4A3E3D]'
+                      }`}
+                    >
+                      🇰🇷 LEARNING KOREAN
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-4xl font-extrabold">
+                    Full-Stack Web Development & Design 👋
+                  </h2>
+                  <p
+                    className={`text-sm sm:text-base max-w-3xl leading-relaxed ${
+                      darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
+                    }`}
+                  >
+                    I am a Web Developer with 4 years of hands-on experience building robust full-stack web applications. My core expertise centers around backend development with Laravel, PHP, and MySQL, alongside crisp frontend development using JavaScript, CSS, Bootstrap, and Vite.
+                  </p>
+                </div>
+
+                <div
+                  className={`w-full lg:w-auto border-2 p-4 shrink-0 ${
+                    darkMode
+                      ? 'bg-[#1A1821] border-[#907AD6] shadow-[4px_4px_0px_0px_#907AD6]'
+                      : 'bg-[#E2F0CB] border-[#4A3E3D] shadow-[4px_4px_0px_0px_#4A3E3D]'
+                  }`}
+                >
+                  <p className="text-xs font-bold">CURRENT STATUS:</p>
+                  <p className={`text-xs mt-1 ${darkMode ? 'text-[#B5EAD7]' : 'text-[#526338]'}`}>
+                    🟢 Building & Available for work
+                  </p>
+                </div>
+              </div>
+
+              {/* Tech Stack Grid */}
+              <div>
+                <h3
+                  className={`text-xs font-bold mb-3 uppercase tracking-wider ${
+                    darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
+                  }`}
+                >
+                  Core Tech Stack & Tools
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+                  {techStack.map((skill, index) => (
+                    <div
+                      key={index}
+                      className={`border-2 p-3 text-center flex flex-col items-center justify-center ${
+                        darkMode
+                          ? 'bg-[#1A1821] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
+                          : 'bg-white border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
+                      }`}
+                    >
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.label} official logo`}
+                        className={`w-7 h-7 mb-2 object-contain ${skill.color}`}
+                        loading="lazy"
+                      />
+                      <span className="text-xs font-bold">{skill.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Language Quest Card */}
+              <div>
+                <h3
+                  className={`text-xs font-bold mb-3 uppercase tracking-wider ${
+                    darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
+                  }`}
+                >
+                  Language Quest 🌐
+                </h3>
+                <div
+                  className={`border-2 p-4 flex flex-col sm:flex-row items-center gap-4 ${
+                    darkMode
+                      ? 'bg-[#1A1821] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
+                      : 'bg-white border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
+                  }`}
+                >
+                  <div className="text-3xl shrink-0">🗣️</div>
+                  <div className="space-y-1 text-center sm:text-left text-xs">
+                    <p className="font-bold">Avid Language Learner</p>
+                    <p className={darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}>
+                      When I'm not coding, I love exploring new languages! I'm currently studying{' '}
+                      <span className="font-bold underline decoration-dashed">Korean (한국어)</span> 🇰🇷 and plan to learn{' '}
+                      <span className="font-bold underline decoration-dashed">Russian (Русский)</span> 🇷🇺 next.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          )}
+
+          {/* Tab 2: Projects */}
+          {activeTab === 'projects' && (
+            <article className="space-y-4">
+              <h2 className="text-xl font-extrabold mb-4">Featured Full-Stack Web Projects</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'School Management System (SMS) Web App',
+                    desc: 'Full-stack application built with Laravel, PHP, and MySQL database management.',
+                    icon: '🚀',
+                    btnBg: darkMode ? 'bg-[#907AD6]' : 'bg-[#FFB7B2]',
+                    cardBg: darkMode ? 'bg-[#342F48]' : 'bg-[#E2F0CB]',
+                  },
+                  {
+                    title: 'Learning Management System (LMS) Web App',
+                    desc: 'Full-stack application built with Laravel, PHP, and MySQL database management.',
+                    icon: '🚀',
+                    btnBg: darkMode ? 'bg-[#907AD6]' : 'bg-[#FFB7B2]',
+                    cardBg: darkMode ? 'bg-[#342F48]' : 'bg-[#E2F0CB]',
+                  },
+                  {
+                    title: 'Vite & Bootstrap UI',
+                    desc: 'Modern, fast-loading frontend interfaces styled with Bootstrap and compiled via Vite.',
+                    icon: '⚡',
+                    btnBg: darkMode ? 'bg-[#7058B8]' : 'bg-[#FFDAC1]',
+                    cardBg: darkMode ? 'bg-[#342F48]' : 'bg-[#FFDAC1]',
+                  },
+                  {
+                    title: 'Database & REST APIs',
+                    desc: 'Custom RESTful API endpoints, relational database design, and query optimization.',
+                    icon: '🗄️',
+                    btnBg: darkMode ? 'bg-[#4F4670]' : 'bg-[#C7CEEA]',
+                    cardBg: darkMode ? 'bg-[#342F48]' : 'bg-[#C7CEEA]',
+                  },
+                ].map((proj, idx) => (
+                  <div
+                    key={idx}
+                    className={`border-2 p-4 flex flex-col justify-between ${
+                      darkMode
+                        ? 'bg-[#1A1821] border-[#907AD6] shadow-[4px_4px_0px_0px_#907AD6]'
+                        : 'bg-white border-[#4A3E3D] shadow-[4px_4px_0px_0px_#4A3E3D]'
+                    }`}
+                  >
+                    <div>
+                      <div
+                        className={`h-36 border-2 flex items-center justify-center text-4xl mb-3 ${
+                          darkMode ? 'border-[#907AD6]' : 'border-[#4A3E3D]'
+                        } ${proj.cardBg}`}
+                      >
+                        {proj.icon}
+                      </div>
+                      <h3 className="font-bold text-sm">{proj.title}</h3>
+                      <p
+                        className={`text-xs mt-1 leading-normal ${
+                          darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
+                        }`}
+                      >
+                        {proj.desc}
+                      </p>
+                    </div>
+                    <button
+                      className={`mt-4 w-full border-2 py-1 text-xs font-bold ${
+                        darkMode
+                          ? 'border-[#DABfff] text-white shadow-[2px_2px_0px_0px_#DABfff]'
+                          : 'border-[#4A3E3D] text-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
+                      } ${proj.btnBg}`}
+                    >
+                      VIEW PROJECT
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </article>
+          )}
+
+          {/* Tab 3: Certifications & Workshops */}
+          {activeTab === 'certifications' && (
+            <article className="space-y-8">
+              {/* Certifications Section */}
+              <div className="space-y-4">
+                <h2 className="text-xl font-extrabold flex items-center gap-2">
+                  <span>📜</span> Certifications
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div
+                    className={`border-2 p-5 flex items-start gap-4 ${
+                      darkMode
+                        ? 'bg-[#1A1821] border-[#907AD6] shadow-[4px_4px_0px_0px_#907AD6]'
+                        : 'bg-white border-[#4A3E3D] shadow-[4px_4px_0px_0px_#4A3E3D]'
+                    }`}
+                  >
+                    <div
+                      className={`w-12 h-12 border-2 flex items-center justify-center shrink-0 ${
+                        darkMode ? 'bg-[#4F4670] border-[#907AD6]' : 'bg-[#E2F0CB] border-[#4A3E3D]'
+                      }`}
+                    >
+                      <img
+                        src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/cisco.svg"
+                        alt="Cisco Logo"
+                        className="w-7 h-7 filter invert-[30%] sepia-[85%] saturate-[1500%] hue-rotate-[180deg]"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <span
+                        className={`inline-block text-[10px] font-bold px-1.5 py-0.5 border ${
+                          darkMode ? 'bg-[#342F48] border-[#907AD6]' : 'bg-[#B5EAD7] border-[#4A3E3D]'
+                        }`}
+                      >
+                        Cisco Networking Certification of Course Completion
+                      </span>
+                      <h3 className="font-extrabold text-sm sm:text-base">CCNA Routing and Switching: Introduction to Networks</h3>
+                      <p className={`text-xs ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
+                        Issued by Cisco Networking Academy & University of Science and Technology of Southern Philippines • Demonstrated proficiency in network fundamentals, media access control, IP addressing, and basic routing and switching configurations.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className={`border-2 p-5 flex items-start gap-4 ${
+                      darkMode
+                        ? 'bg-[#1A1821] border-[#907AD6] shadow-[4px_4px_0px_0px_#907AD6]'
+                        : 'bg-white border-[#4A3E3D] shadow-[4px_4px_0px_0px_#4A3E3D]'
+                    }`}
+                  >
+                    <div
+                      className={`w-12 h-12 border-2 flex items-center justify-center shrink-0 ${
+                        darkMode ? 'bg-[#4F4670] border-[#907AD6]' : 'bg-[#E2F0CB] border-[#4A3E3D]'
+                      }`}
+                    >
+                      <img
+                        src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/cisco.svg"
+                        alt="Cisco Logo"
+                        className="w-7 h-7 filter invert-[30%] sepia-[85%] saturate-[1500%] hue-rotate-[180deg]"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <span
+                        className={`inline-block text-[10px] font-bold px-1.5 py-0.5 border ${
+                          darkMode ? 'bg-[#342F48] border-[#907AD6]' : 'bg-[#B5EAD7] border-[#4A3E3D]'
+                        }`}
+                      >
+                        Cisco Networking Certification of Course Completion
+                      </span>
+                      <h3 className="font-extrabold text-sm sm:text-base">CCNA Routing and Switching: Scaling Networks</h3>
+                      <p className={`text-xs ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
+                        Issued by Cisco Networking Academy & University of Science and Technology of Southern Philippines • Demonstrated proficiency in configuring and troubleshooting advanced routing protocols, implementing Link Aggregation, and managing network security and redundancy.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Workshops Attended Section */}
+              <div className="space-y-4 pt-4 border-t-2 border-dashed border-gray-400">
+                <h2 className="text-xl font-extrabold flex items-center gap-2">
+                  <span>🛠️</span> Workshops & Seminars Attended
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {[
+                    {
+                      title: 'Software QA Manual Testing Workshop',
+                      org: 'MSTCONNECT',
+                      desc: 'Workshop covering manual testing techniques, test case design, and quality assurance best practices using JIRA, TestRail & Excel.',
+                      tag: 'QA',
+                    },
+                    // {
+                    //   title: 'Database Architecture & Query Tuning',
+                    //   org: 'Database Summit',
+                    //   desc: 'Interactive workshop focusing on relational schema design, indexing strategies, and MySQL performance tuning.',
+                    //   tag: 'DATABASE',
+                    // },
+                    // {
+                    //   title: 'UI/UX & Frontend Workflows with Vite',
+                    //   org: 'Developer Community Bootcamp',
+                    //   desc: 'Hands-on session on rapid frontend prototyping, asset optimization with Vite, and responsive styling frameworks.',
+                    //   tag: 'FRONTEND',
+                    // },
+                    {
+                      title: 'Web Development Workshop',
+                      org: 'ZUITT',
+                      desc: 'Participated in a web development workshop covering Git, HTML and CSS.',
+                      tag: 'WEB DEV',
+                    },
+                  ].map((ws, i) => (
+                    <div
+                      key={i}
+                      className={`border-2 p-4 flex flex-col justify-between ${
+                        darkMode
+                          ? 'bg-[#1A1821] border-[#907AD6] shadow-[3px_3px_0px_0px_#907AD6]'
+                          : 'bg-white border-[#4A3E3D] shadow-[3px_3px_0px_0px_#4A3E3D]'
+                      }`}
+                    >
+                      <div className="space-y-2">
+                        <span
+                          className={`inline-block text-[10px] font-bold px-1.5 py-0.5 border ${
+                            darkMode ? 'bg-[#4F4670] border-[#907AD6]' : 'bg-[#FFDAC1] border-[#4A3E3D]'
+                          }`}
+                        >
+                          {ws.tag}
+                        </span>
+                        <h3 className="font-bold text-xs sm:text-sm">{ws.title}</h3>
+                        <p className={`text-[11px] font-semibold ${darkMode ? 'text-[#DABfff]' : 'text-[#6B5B59]'}`}>
+                          {ws.org}
+                        </p>
+                        <p className={`text-xs ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
+                          {ws.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
+          )}
+
+          {/* Tab 4: Contact */}
+          {activeTab === 'contact' && (
+            <article className="max-w-xl mx-auto w-full space-y-6 text-center py-8">
+              <div
+                className={`w-16 h-16 border-2 flex items-center justify-center text-3xl mx-auto ${
+                  darkMode
+                    ? 'bg-[#907AD6] border-[#DABfff] shadow-[4px_4px_0px_0px_#DABfff]'
+                    : 'bg-[#FFB7B2] border-[#4A3E3D] shadow-[4px_4px_0px_0px_#4A3E3D]'
+                }`}
+              >
+                ✉️
+              </div>
+              <div className="space-y-2">
+                <h2 className="text-2xl font-extrabold">Let's Connect</h2>
+                <p className={`text-xs sm:text-sm ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
+                  Looking for a full-stack developer, need help with Laravel/Vite builds, or want to practice languages? Drop a message!
+                </p>
+              </div>
+
+              <div
+                className={`border-2 p-6 space-y-4 ${
+                  darkMode
+                    ? 'bg-[#1A1821] border-[#907AD6] shadow-[4px_4px_0px_0px_#907AD6]'
+                    : 'bg-white border-[#4A3E3D] shadow-[4px_4px_0px_0px_#4A3E3D]'
+                }`}
+              >
+                <a
+                  href="mailto:hello@example.com"
+                  className={`block w-full border-2 px-6 py-3 text-xs sm:text-sm font-extrabold transition-all ${
+                    darkMode
+                      ? 'bg-[#907AD6] text-white border-[#DABfff] shadow-[4px_4px_0px_0px_#DABfff]'
+                      : 'bg-[#E2F0CB] text-[#4A3E3D] border-[#4A3E3D] shadow-[4px_4px_0px_0px_#4A3E3D]'
+                  }`}
+                >
+                  💌 SEND AN EMAIL
+                </a>
+              </div>
+            </article>
+          )}
+
+          {/* Retro Status Footer */}
+          <footer
+            className={`mt-8 pt-4 border-t-2 border-dashed flex flex-col sm:flex-row justify-between items-center text-[10px] sm:text-xs font-bold gap-2 ${
+              darkMode ? 'border-[#4F4670] text-[#AFA2C8]' : 'border-[#D8A7B1] text-[#88706B]'
+            }`}
+          >
+            <span>STACK: LARAVEL / PHP / VITE</span>
+            {/* <span>BUILT WITH NEXT.JS & TAILWIND</span> */}
+          </footer>
+        </section>
+      </main>
+    </>
+  );
+}
