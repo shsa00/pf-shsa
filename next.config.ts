@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
 
   /* Ensure compiler minifies JavaScript code */
-  swcMinify: true,
+  // swcMinify: true,
 };
-  typescript: { ignoreBuildErrors: true },
+
 export default nextConfig;
