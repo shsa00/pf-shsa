@@ -355,7 +355,7 @@ export default function Home() {
                         darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
                       }`}
                     >
-                      I am a Web Developer building robust full-stack web applications. My core expertise centers around backend development with Laravel, PHP, and MySQL, alongside crisp frontend development using JavaScript, CSS, Bootstrap, and Vite.
+                      I am a Web Developer building robust full-stack web applications. My core expertise centers around backend development with Laravel, PHP, and MySQL, alongside frontend development using JavaScript, CSS, Bootstrap, and Vite.
                     </p>
                   </div>
                 </div>
