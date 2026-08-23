@@ -5,6 +5,9 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/hampter.png',
+  },
   title: 'Shane | Full-Stack Web Developer (Laravel, PHP, MySQL, Vite)',
   description:
     'Portfolio of Shane, a Web Developer with 4 years of experience specializing in Laravel, PHP, MySQL, JavaScript, Bootstrap, and Vite.',

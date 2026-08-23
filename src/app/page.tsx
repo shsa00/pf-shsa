@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 // Type definition for Project details
 interface Project {
   id: string;
+  projName: string;
   title: string;
   desc: string;
   longDesc: string;
@@ -89,11 +90,12 @@ export default function Home() {
   
   const projects: Project[] = [{
       id: 'laravel-app-1',
+      projName: 'CKLMS',
       title: 'Learning Management System (LMS) Web App',
       desc: 'Full-stack application built with Laravel, PHP, and MySQL database management. (2021-2023)',
       longDesc:
         'A platform for educational institutions to manage classrooms, students, instructors and books. Features include multi-role authentication, book importing and creation, quiz/assignment creations and grading.',
-      icon: 'CKLMS',
+      icon: '💻',
       projYear: '2021-2023',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       btnBg: darkMode ? 'bg-[#907AD6]' : 'bg-[#FFB7B2]',
@@ -109,11 +111,12 @@ export default function Home() {
     },
     {
       id: 'laravel-app-2',
+      projName: 'ESSENTIEL',
       title: 'School Management System (SMS) Web App',
       desc: 'Full-stack application built with Laravel, PHP, and MySQL database management. (2019-2023)',
       longDesc:
         'A platform for educational institutions to manage enrollment, class scheduling, payments, students, and instructors. Features include multi-role authentication, enrollment, grading system, and parent notification system.',
-      icon: 'ESSENTIEL',
+      icon: '💻',
       projYear: '2019-2023',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
       btnBg: darkMode ? 'bg-[#7058B8]' : 'bg-[#FFDAC1]',
@@ -453,7 +456,7 @@ export default function Home() {
                           darkMode ? 'border-[#907AD6]' : 'border-[#4A3E3D]'
                         } ${proj.cardBg}`}
                       >
-                        {proj.icon}
+                        {proj.projName}
                       </div>
                       <h3 className="font-bold text-sm">{proj.title}</h3>
                       <p
