@@ -195,7 +195,7 @@ export default function Home() {
             <div>
               <h1 className="text-xl font-extrabold tracking-wide">Shane | Web Developer</h1>
               <p className={`text-xs ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
-                Full-Stack Laravel, PHP & Vite Specialist ✦ 5+ Years Exp (and still coding)
+                Full-Stack Laravel, PHP & JavaScript Specialist ✦ 5+ Years Exp (and still coding)
               </p>
             </div>
           </div>
