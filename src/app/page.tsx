@@ -347,7 +347,7 @@ export default function Home() {
                     </div>
 
                     <h2 className="text-2xl sm:text-3xl font-extrabold">
-                      Full-Stack Web Development & Design 👋
+                      Full-Stack Web Development & Design
                     </h2>
 
                     <p
