@@ -413,7 +413,7 @@ export default function Home() {
                     darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
                   }`}
                 >
-                  Language Quest 🌐
+                  Language Quest
                 </h3>
                 <div
                   className={`border-2 p-4 flex flex-col sm:flex-row items-center gap-4 ${
@@ -477,7 +477,7 @@ export default function Home() {
                           : 'border-[#4A3E3D] text-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D] hover:opacity-90'
                       } ${proj.btnBg}`}
                     >
-                      VIEW PROJECT DETAILS 🔍
+                      VIEW PROJECT DETAILS
                     </button>
                   </div>
                 ))}
@@ -563,7 +563,8 @@ export default function Home() {
               {/* Certifications Section */}
               <div className="space-y-4">
                 <h2 className="text-xl font-extrabold flex items-center gap-2">
-                  <span>📜</span> Certifications
+                  {/* <span>📜</span> */}
+                   Certifications
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div
@@ -636,7 +637,8 @@ export default function Home() {
               {/* Workshops Attended Section */}
               <div className="space-y-4 pt-4 border-t-2 border-dashed border-gray-400">
                 <h2 className="text-xl font-extrabold flex items-center gap-2">
-                  <span>🛠️</span> Workshops & Seminars Attended
+                  {/* <span>🛠️</span> */}
+                   Workshops & Seminars Attended
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
@@ -700,7 +702,7 @@ export default function Home() {
           {activeTab === 'contact' && (
             <article className="max-w-2xl mx-auto w-full space-y-8 py-4">
               <div className="text-center space-y-2">
-                <div
+                {/* <div
                   className={`w-14 h-14 border-2 flex items-center justify-center text-2xl mx-auto ${
                     darkMode
                       ? 'bg-[#907AD6] border-[#DABfff] shadow-[4px_4px_0px_0px_#DABfff]'
@@ -708,7 +710,7 @@ export default function Home() {
                   }`}
                 >
                   ✉️
-                </div>
+                </div> */}
                 <h2 className="text-2xl font-extrabold">Send a Message</h2>
                 <p className={`text-xs sm:text-sm ${darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}`}>
                   Have a project in mind, a full-stack role, or just want to connect? Fill out the form below!
