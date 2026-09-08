@@ -22,7 +22,6 @@ interface Project {
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'about' | 'projects' | 'certifications' | 'contact'>('about');
-  const [aboutSubTab, setAboutSubTab] = useState<'stack' | 'facts'>('stack');
   const [darkMode, setDarkMode] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -100,26 +99,6 @@ export default function Home() {
     },
   ];
 
-    // Fun / Interesting Facts About Me
-  const funFacts = [
-    {
-      emoji: '🗣️',
-      title: 'Avid Language Learner',
-      desc: (
-        <>
-          When I'm not coding, I love exploring new languages! I'm currently studying{' '}
-          <span className="font-bold underline decoration-dashed">Korean (한국어)</span> 🇰🇷. I know how to read and write in Hangeul since high school, I just need to widen my vocabulary and practice more on conversing.<br/>
-          I also plan to learn{' '}
-          <span className="font-bold underline decoration-dashed">Russian (Русский)</span> 🇷🇺 next.
-        </>
-      ),
-    },
-    // {
-    //   emoji: '🎮',
-    //   title: 'Casual Gamer',
-    //   desc: 'I unwind with the occasional game — it keeps the problem-solving brain warmed up.',
-    // },
-  ];
   // Project List with Modal Content & Preview Photos
   
   const projects: Project[] = [{
@@ -213,7 +192,7 @@ export default function Home() {
 
         {/* Header / Navbar */}
         <header
-          className={`w-full border-4 sticky top-1 z-20 p-4 mb-6 flex flex-col sm:flex-row justify-between items-center gap-4 transition-colors ${
+          className={`w-full border-4 relative z-10 p-4 mb-6 flex flex-col sm:flex-row justify-between items-center gap-4 transition-colors ${
             darkMode
               ? 'bg-[#262335] border-[#907AD6] shadow-[6px_6px_0px_0px_#4F4670]'
               : 'bg-[#FFF8F6] border-[#4A3E3D] shadow-[6px_6px_0px_0px_#D8A7B1]'
@@ -304,10 +283,9 @@ export default function Home() {
                   : 'bg-[#4A3E3D] text-[#FDF0ED] border-[#4A3E3D] shadow-[3px_3px_0px_0px_#D8A7B1]'
               }`}
             >
-              {darkMode ? '☀️' : '🌙'}
+              {darkMode ? '☀️ LIGHT' : '🌙 DARK'}
             </button>
           </nav>
-          
         </header>
 
         {/* Content Section */}
@@ -382,7 +360,7 @@ export default function Home() {
                     </div>
 
                     <h2 className="text-2xl sm:text-3xl font-extrabold">
-                      Full-Stack Web Development
+                      Full-Stack Web Development & Design
                     </h2>
 
                     <p
@@ -390,7 +368,7 @@ export default function Home() {
                         darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
                       }`}
                     >
-                      I am a Web Developer building robust full-stack web applications. My core expertise centers around backend development with Laravel, PHP, and MySQL, alongside frontend development using JavaScript, CSS, and Bootstrap.
+                      I am a Web Developer building robust full-stack web applications. My core expertise centers around backend development with Laravel, PHP, and MySQL, alongside frontend development using JavaScript, CSS, Bootstrap, and Vite.
                     </p>
                   </div>
                 </div>
@@ -410,135 +388,94 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Tiny Sub-Tab Switcher */}
-              <div className="flex justify-center sm:justify-end gap-2">
-                <button
-                  onClick={() => setAboutSubTab('stack')}
-                  className={`px-2.5 py-1 text-[10px] font-bold border-2 transition-all ${
-                    aboutSubTab === 'stack'
-                      ? darkMode
-                        ? 'bg-[#907AD6] text-white border-[#DABfff] shadow-[2px_2px_0px_0px_#DABfff] -translate-y-0.5'
-                        : 'bg-[#B5EAD7] text-[#4A3E3D] border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D] -translate-y-0.5'
-                      : darkMode
-                      ? 'bg-[#1A1821] border-[#907AD6] hover:bg-[#342F48]'
-                      : 'bg-white border-[#4A3E3D] hover:bg-[#EAFBF3]'
+              {/* Tech Stack */}
+              <div>
+                <h3
+                  className={`text-xs font-bold mb-3 uppercase tracking-wider ${
+                    darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
                   }`}
                 >
-                  STACK
-                </button>
-                <button
-                  onClick={() => setAboutSubTab('facts')}
-                  className={`px-2.5 py-1 text-[10px] font-bold border-2 transition-all ${
-                    aboutSubTab === 'facts'
-                      ? darkMode
-                        ? 'bg-[#7058B8] text-white border-[#DABfff] shadow-[2px_2px_0px_0px_#DABfff] -translate-y-0.5'
-                        : 'bg-[#FFDAC1] text-[#4A3E3D] border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D] -translate-y-0.5'
-                      : darkMode
-                      ? 'bg-[#1A1821] border-[#907AD6] hover:bg-[#342F48]'
-                      : 'bg-white border-[#4A3E3D] hover:bg-[#FFF0E5]'
-                  }`}
-                >
-                  FUN FACTS
-                </button>
+                  Core Tech Stack & Tools
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+                  {techStack.map((skill, index) => (
+                    <div
+                      key={index}
+                      className={`border-2 p-3 text-center flex flex-col items-center justify-center ${
+                        darkMode
+                          ? 'bg-[#1A1821] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
+                          : 'bg-white border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
+                      }`}
+                    >
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.label} official logo`}
+                        className={`w-7 h-7 mb-2 object-contain ${skill.color}`}
+                        loading="lazy"
+                      />
+                      <span className="text-xs font-bold">{skill.label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              
-              {/* Stack Sub-Tab: Core Tech Stack + Currently Exploring */}
-              {aboutSubTab === 'stack' && (
-                <div className="space-y-6">
-                  {/* Tech Stack */}
-                  <div>
-                    <h3
-                      className={`text-xs font-bold mb-3 uppercase tracking-wider ${
-                        darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
+
+              {/* Currently Learning */}
+              <div>
+                <h3
+                  className={`text-xs font-bold mb-3 uppercase tracking-wider ${
+                    darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
+                  }`}
+                >
+                  Currently Learning
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+                  {currentlyLearning.map((skill, index) => (
+                     <div
+                      key={index}
+                      className={`border-2 p-3 text-center flex flex-col items-center justify-center ${
+                        darkMode
+                          ? 'bg-[#1A1821] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
+                          : 'bg-white border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
                       }`}
                     >
-                      Core Tech Stack & Tools
-                    </h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-                      {techStack.map((skill, index) => (
-                        <div
-                          key={index}
-                          className={`border-2 p-3 text-center flex flex-col items-center justify-center ${
-                            darkMode
-                              ? 'bg-[#1A1821] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
-                              : 'bg-white border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
-                          }`}
-                        >
-                          <img
-                            src={skill.logo}
-                            alt={`${skill.label} official logo`}
-                            className={`w-7 h-7 mb-2 object-contain ${skill.color}`}
-                            loading="lazy"
-                          />
-                          <span className="text-xs font-bold">{skill.label}</span>
-                        </div>
-                      ))}
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.label} official logo`}
+                        className={`w-7 h-7 mb-2 object-contain ${skill.color}`}
+                        loading="lazy"
+                      />
+                      <span className="text-xs font-bold">{skill.label}</span>
                     </div>
-                  </div>
-
-                  {/* Currently Exploring */}
-                  <div>
-                    <h3
-                      className={`text-xs font-bold mb-3 uppercase tracking-wider ${
-                        darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
-                      }`}
-                    >
-                      Currently Exploring
-                    </h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-                      {currentlyLearning.map((skill, index) => (
-                         <div
-                          key={index}
-                          className={`border-2 p-3 text-center flex flex-col items-center justify-center ${
-                            darkMode
-                              ? 'bg-[#1A1821] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
-                              : 'bg-white border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
-                          }`}
-                        >
-                          <img
-                            src={skill.logo}
-                            alt={`${skill.label} official logo`}
-                            className={`w-7 h-7 mb-2 object-contain ${skill.color}`}
-                            loading="lazy"
-                          />
-                          <span className="text-xs font-bold">{skill.label}</span>
-                        </div>
-                      ))}
-                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Language Quest */}
+              <div>
+                <h3
+                  className={`text-xs font-bold mb-3 uppercase tracking-wider ${
+                    darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
+                  }`}
+                >
+                  Language Quest
+                </h3>
+                <div
+                  className={`border-2 p-4 flex flex-col sm:flex-row items-center gap-4 ${
+                    darkMode
+                      ? 'bg-[#1A1821] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
+                      : 'bg-white border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
+                  }`}
+                >
+                  <div className="text-3xl shrink-0">🗣️</div>
+                  <div className="space-y-1 text-center sm:text-left text-xs">
+                    <p className="font-bold">Avid Language Learner</p>
+                    <p className={darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}>
+                      When I'm not coding, I love exploring new languages! I'm currently studying{' '}
+                      <span className="font-bold underline decoration-dashed">Korean (한국어)</span> 🇰🇷 and plan to learn{' '}
+                      <span className="font-bold underline decoration-dashed">Russian (Русский)</span> 🇷🇺 next.
+                    </p>
                   </div>
                 </div>
-              )}
-
-              {/* Fun Facts Sub-Tab: Interesting facts about me */}
-              {aboutSubTab === 'facts' && (
-                <div>
-                  <h3
-                    className={`text-xs font-bold mb-3 uppercase tracking-wider ${
-                      darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'
-                    }`}
-                  >
-                    A Few Fun Facts
-                  </h3>
-                  <div className="space-y-3">
-                    {funFacts.map((fact, index) => (
-                      <div
-                        key={index}
-                        className={`border-2 p-4 flex flex-col sm:flex-row items-center gap-4 ${
-                          darkMode
-                            ? 'bg-[#1A1821] border-[#907AD6] shadow-[2px_2px_0px_0px_#907AD6]'
-                            : 'bg-white border-[#4A3E3D] shadow-[2px_2px_0px_0px_#4A3E3D]'
-                        }`}
-                      >
-                        <div className="text-3xl shrink-0">{fact.emoji}</div>
-                        <div className="space-y-1 text-center sm:text-left text-xs">
-                          <p className="font-bold">{fact.title}</p>
-                          <p className={darkMode ? 'text-[#AFA2C8]' : 'text-[#88706B]'}>{fact.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+              </div>
             </article>
           )}
 
@@ -996,16 +933,6 @@ export default function Home() {
                       url: 'https://www.linkedin.com/in/shane-hazil-abutan-78ba41271',
                       icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg',
                     },
-                    {
-                      name: 'Discord',
-                      url: 'https://discord.com/users/alecxisx',
-                      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/discord.svg',
-                    },
-                    // {
-                    //   name: 'SheCanCode',
-                    //   url: 'https://community.shecancode.io/users/8889692',
-                    //   icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg',
-                    // },
                   ].map((social, idx) => (
                     <a
                       key={idx}
