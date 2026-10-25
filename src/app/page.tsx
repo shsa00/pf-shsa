@@ -31,7 +31,7 @@ export default function Home() {
   const [portfolioData, setPortfolioData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+useEffect(() => {
     fetch('/api/content')
       .then((res) => res.json())
       .then((json) => {
