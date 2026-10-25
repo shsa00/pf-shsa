@@ -29,3 +29,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.site h1, .site h2, .site h3 { font-family: var(--font-pixel), monospace; line-height: 1.2; margin: 0; }
+.service-header { font-family: var(--font-pixel), monospace; line-height: 1.2; margin: 0; }
+/* .service-header */

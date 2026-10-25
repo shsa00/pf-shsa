@@ -1,0 +1,176 @@
+{
+  "profile": {
+    "name": "Shane",
+    "roleTitle": "Full-Stack Web Development",
+    "tagline": "Full-Stack Laravel, PHP & JavaScript Specialist ✦ 5+ Years Exp (and still coding)",
+    "aboutText": "I am a Web Developer building robust full-stack web applications. My core expertise centers around backend development with Laravel, PHP, and MySQL, alongside frontend development using JavaScript, CSS, and Bootstrap.",
+    "status": "🟢 Building & Available for work"
+  },
+  "techStack": [
+    {
+      "label": "Laravel",
+      "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/laravel.svg"
+    },
+    {
+      "label": "PHP",
+      "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/php.svg"
+    },
+    {
+      "label": "MySQL",
+      "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/mysql.svg"
+    },
+    {
+      "label": "JavaScript",
+      "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/javascript.svg"
+    },
+    {
+      "label": "Bootstrap",
+      "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/bootstrap.svg"
+    },
+    {
+      "label": "CSS",
+      "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/css3.svg"
+    }
+  ],
+  "currentlyLearning": [
+    {
+      "label": "Next.js",
+      "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/nextdotjs.svg"
+    },
+    {
+      "label": "Typescript",
+      "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/typescript.svg"
+    }
+  ],
+  "funFacts": [
+    {
+      "emoji": "🗣️",
+      "title": "Avid Language Learner",
+      "desc": "When I'm not coding, I love exploring new languages! I'm currently studying Korean (한국어) 🇰🇷 and Russian (Русский) 🇷🇺."
+    }
+  ],
+  "certifications": [
+    {
+      "badges": [
+        "Cisco Networking Certification of Course Completion"
+      ],
+      "title": "CCNA Routing and Switching: Introduction to Networks",
+      "desc": "Issued by Cisco Networking Academy & University of Science and Technology of Southern Philippines • Demonstrated proficiency in network fundamentals, media access control, IP addressing, and basic routing and switching configurations."
+    },
+    {
+      "badge": [
+        "Cisco Networking Certification of Course Completion"
+      ],
+      "title": "CCNA Routing and Switching: Scaling Networks",
+      "desc": "Issued by Cisco Networking Academy & University of Science and Technology of Southern Philippines • Demonstrated proficiency in configuring and troubleshooting advanced routing protocols, implementing Link Aggregation, and managing network security and redundancy.",
+      "badges": [
+        "Cisco Networking Certification of Course Completion"
+      ]
+    }
+  ],
+  "workshops": [
+    {
+      "tag": [
+        "QA",
+        "FRONTEND"
+      ],
+      "title": "Software QA Manual Testing Workshop",
+      "org": "MSTCONNECT",
+      "desc": "Workshop covering manual testing techniques, test case design, and quality assurance best practices using JIRA, TestRail & Excel.",
+      "tags": [
+        "QA"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1792907285584",
+      "projName": "IES",
+      "title": "ICONIC ENVIRO SOLUTIONS",
+      "desc": "A custom-built, admin-managed marketing website for Iconic Enviro Solutions, with a Filament admin portal for content, enquiries, and newsletters. Built on Laravel and deployed on Hostinger.",
+      "longDesc": "Iconic Enviro Solutions is a client website built to present the company’s services, projects, and credentials. It gives the client full control over the content without touching code. The public site is a responsive, partial-based homepage in which any section left empty in the admin is hidden automatically. Visitors can browse the projects portfolio, send enquiries through the contact form, and subscribe to the newsletter.",
+      "projYear": "2026",
+      "btnBg": "bg-[#FFB7B2]",
+      "cardBg": "bg-[#E2F0CB]",
+      "tech": [
+        "Laravel",
+        "PHP",
+        "MySQL"
+      ],
+      "features": [
+        "Admin-managed homepage, projects gallery (Before & After and photos/videos), and branding",
+        "Contact inbox with replies",
+        "Newsletter system with scheduled campaigns and signed unsubscribe links"
+      ],
+      "image": "",
+      "liveUrl": "https://iconicenviro.au/",
+      "githubUrl": ""
+    },
+    {
+      "id": "laravel-app-1",
+      "projName": "CKLMS",
+      "title": "Learning Management System (LMS) Web App",
+      "desc": "Full-stack application built with Laravel, PHP, and MySQL database management.",
+      "longDesc": "A platform for educational institutions to manage classrooms, students, instructors and books. Features include multi-role authentication, book importing and creation, quiz/assignment creations and grading.",
+      "projYear": "2021-2023",
+      "btnBg": "bg-[#FFB7B2]",
+      "cardBg": "bg-[#E2F0CB]",
+      "tech": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "CSS",
+        "Eloquent ORM"
+      ],
+      "features": [
+        "Book uploading and creation",
+        "Assignments and quizzes with grading system",
+        "Multi-role authentication for students, instructors, and admins"
+      ],
+      "liveUrl": "",
+      "githubUrl": "",
+      "image": ""
+    },
+    {
+      "id": "laravel-app-2",
+      "projName": "ESSENTIEL",
+      "title": "School Management System (SMS) Web App",
+      "desc": "Full-stack application built with Laravel, PHP, and MySQL database management.",
+      "longDesc": "A platform for educational institutions to manage enrollment, class scheduling, payments, students, and instructors.",
+      "projYear": "2019-2023",
+      "btnBg": "bg-[#FFDAC1]",
+      "cardBg": "bg-[#FFDAC1]",
+      "tech": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "CSS",
+        "Eloquent ORM"
+      ],
+      "features": [
+        "Multi-role authentication for students, instructors, and admins",
+        "Enrollment management and class scheduling"
+      ],
+      "liveUrl": "",
+      "githubUrl": "",
+      "image": ""
+    }
+  ],
+  "socials": [
+    {
+      "name": "Laracasts",
+      "url": "https://laracasts.com/@shing_shing",
+      "icon": "laracasts-secondary-logo-symbol.svg"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/shane-hazil-abutan-78ba41271",
+      "icon": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg"
+    },
+    {
+      "name": "Discord",
+      "url": "https://discord.com/users/alecxisx",
+      "icon": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/discord.svg"
+    }
+  ]
+}
