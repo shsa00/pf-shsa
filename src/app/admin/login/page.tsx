@@ -35,13 +35,12 @@ export default function AdminLogin() {
     <main className="min-h-screen bg-[#1A1821] text-[#E0D8F0] font-mono flex items-center justify-center p-4">
       <div className="w-full max-w-md border-4 border-[#907AD6] bg-[#262335] p-6 shadow-[8px_8px_0px_0px_#4F4670]">
         <div className="flex items-center gap-2 mb-6 border-b-2 border-dashed border-[#4F4670] pb-4">
-          <span className="text-xl">🔒</span>
           <h1 className="text-lg font-black tracking-wider">ADMIN AUTHENTICATION</h1>
         </div>
 
         {error && (
           <div className="border-2 border-[#FFB7B2] bg-[#4A262C] text-[#FFB7B2] p-3 text-xs font-bold mb-4">
-            ⚠️ {error}
+             {error}
           </div>
         )}
 
@@ -75,7 +74,7 @@ export default function AdminLogin() {
             disabled={loading}
             className="w-full border-2 border-[#DABfff] bg-[#907AD6] py-3 text-xs font-black text-white shadow-[3px_3px_0px_0px_#DABfff] transition-all active:translate-y-0.5 disabled:opacity-50"
           >
-            {loading ? 'AUTHENTICATING...' : 'ACCESS DASHBOARD 🚀'}
+            {loading ? 'AUTHENTICATING...' : 'ACCESS DASHBOARD'}
           </button>
         </form>
       </div>
