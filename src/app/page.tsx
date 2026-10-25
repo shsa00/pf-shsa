@@ -264,26 +264,27 @@ export default function Home() {
                 {/* Profile Photo & Status Stack */}
                 <div className="flex flex-col sm:flex-row items-center gap-5 w-full lg:w-auto">
                   {/* Pixel-Border Frame */}
+                  {/* Pixel-Border Frame */}
                   <div
-                    className={`relative w-32 h-32 sm:w-36 sm:h-36 border-4 shrink-0 overflow-hidden ${
+                    className={`relative w-32 h-32 sm:w-36 sm:h-36 border-4 shrink-0 overflow-hidden select-none ${
                       darkMode
                         ? 'bg-[#1A1821] border-[#907AD6] shadow-[6px_6px_0px_0px_#907AD6]'
                         : 'bg-white border-[#4A3E3D] shadow-[6px_6px_0px_0px_#4A3E3D]'
                     }`}
                   >
                     <img
-                      src="/img/shane.jpg" // 👈 Replace with your photo path (e.g., public/profile.jpg)
+                      src="/img/shane.jpg"
                       alt="Shane Profile Photo"
-                      className="w-full h-full object-cover"
+                      draggable={false} // 👈 Disables image dragging in all browsers
+                      className="w-full h-full object-cover select-none pointer-events-none" // 👈 Prevents text/image selection & mouse drag interactions
                       onError={(e) => {
-                        // Fallback placeholder if image is missing
                         (e.target as HTMLImageElement).src =
                           'https://api.dicebear.com/7.x/pixel-art/svg?seed=Shane';
                       }}
                     />
                     {/* Corner Pixel Tag */}
                     <span
-                      className={`absolute bottom-0 right-0 text-[9px] font-black px-1.5 py-0.5 border-t-2 border-l-2 ${
+                      className={`absolute bottom-0 right-0 text-[9px] font-black px-1.5 py-0.5 border-t-2 border-l-2 select-none ${
                         darkMode
                           ? 'bg-[#262335] border-[#907AD6] text-[#DABfff]'
                           : 'bg-[#FFF8F6] border-[#4A3E3D] text-[#4A3E3D]'
