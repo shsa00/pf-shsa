@@ -42,15 +42,12 @@ export async function POST(request: Request) {
       contentType: 'application/json',
       token: process.env.BLOB_READ_WRITE_TOKEN,
       addRandomSuffix: false,
+      allowOverwrite: true, // 👈 Add this line
     });
 
     return NextResponse.json({ success: true, message: 'Content updated successfully' });
   } catch (error: any) {
     console.error('Save data error:', error);
-    // 👈 Return exact error message for debugging
-    return NextResponse.json(
-      { error: error?.message || 'Failed to save data' }, 
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error?.message || 'Failed to save data' }, { status: 500 });
   }
 }
