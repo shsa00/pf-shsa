@@ -37,17 +37,20 @@ export async function POST(request: Request) {
   try {
     const newData = await request.json();
     
-    // Save/overwrite JSON data directly in Vercel Blob storage
     await put(BLOB_FILENAME, JSON.stringify(newData, null, 2), {
       access: 'public',
       contentType: 'application/json',
       token: process.env.BLOB_READ_WRITE_TOKEN,
-      addRandomSuffix: false, // Ensures it overwrites the same file instead of creating new ones
+      addRandomSuffix: false,
     });
 
     return NextResponse.json({ success: true, message: 'Content updated successfully' });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Save data error:', error);
-    return NextResponse.json({ error: 'Failed to save data' }, { status: 500 });
+    // 👈 Return exact error message for debugging
+    return NextResponse.json(
+      { error: error?.message || 'Failed to save data' }, 
+      { status: 500 }
+    );
   }
 }
